@@ -1,0 +1,14 @@
+server:
+  port: 8070
+spring:
+  application:
+    name: miscroservice-sidecar-node-service
+eureka:
+  client:
+    server-url:
+      defaultZone:
+  instance:
+    prefer-ip-address: true
+sidecar:
+  port: 8060                                       #node.js微服务的接口
+  health-uri: http://localhost:8060/headth.json    #node.js微服务的健康检查url

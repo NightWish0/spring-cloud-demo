@@ -1,0 +1,22 @@
+server:
+  port: 8031
+spring:
+  application:
+    name: miscroservice-hystrix-turbine
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    healthcheck:
+      enable: true
+    serviceUrl:
+#      defaultZone: http://user:password123@peer1:8761/eureka/,http://user:password123@peer2:8762/eureka/
+      defaultZone: http://user:password123@eureka_1:8761/eureka/,http://user:password123@eureka_2:8762/eureka/
+  instance:
+      prefer-ip-address: true
+#turbine:
+#    appConfig: miscroservice-consumer-movie,miscroservice-provider-user
+#    clusterNameExpression: "'default'"

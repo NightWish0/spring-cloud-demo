@@ -1,0 +1,26 @@
+spring:
+  application:
+    #对应config server所获得的配置文件的{application}
+    name: miscroservice-foo
+  cloud:
+    config:
+      # config server的地址
+#      uri: http://localhost:8080/
+      # profile对应config server所获取的配置文件中的{profile}
+      profile: dev
+      # 指定Git仓库的分支，对应config server所获取的配置文件的{label}
+      label: master
+      #表示使用服务发现组件中的Config Server,而不是指定Config Server的uri，默认false
+      discovery:
+        enabled: true
+        #指定Config Server在服务发现中的serviceId,默认是configserver
+        service-id: miscroservice-config-server
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:password123@peer1:8761/eureka/,http://user:password123@peer2:8762/eureka/

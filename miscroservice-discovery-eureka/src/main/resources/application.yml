@@ -1,0 +1,30 @@
+#server:
+#  port: 8761
+#euraka:
+#  client:
+#    registerWithEureka: false
+#    fetchRegisty: false
+#    serviceUrl:
+#      defaultZone: http://localhost:${server.port}/eureka/
+
+spring:
+  application:
+    name: miscroservice-discovery-eureka
+  # 指定profile=peer1
+#  profiles: peer1
+server:
+  port: 8761
+euraka:
+  instance:
+    # 指定当profile=peer1时，主机名时peer1
+#    hostname: peer1
+    hostname: eureka_1
+  client:
+    serviceUrl:
+      defaultZone: http://user:password123@eureka_2:8762/eureka/
+security:
+  basic:
+    enabled: true            # 开启给予HTTP basic的认证
+  user:
+    name: user               # 配置登录的账户
+    password: password123    # 配置登录的密码

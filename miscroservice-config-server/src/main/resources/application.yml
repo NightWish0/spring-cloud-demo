@@ -1,0 +1,49 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: miscroservice-config-server
+  cloud:
+    config:
+      server:
+        git:
+          #配置Git仓库的地址
+          uri: https://github.com/NightWish0/spring-cloud-config-repo.git
+          #Git账号
+          username:
+          #Git密码
+          password:
+        health:
+          repositories:
+            a-foo:
+              label: config-label-2.0
+              name: miscroservice-foo
+              profiles: dev
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+encrypt:
+  # 对称加密
+  key: foo
+  # 非对称加密
+#  key-store:
+#    location:
+#    password:
+#    alias:
+#    secret:
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:password123@peer1:8761/eureka/,http://user:password123@peer2:8762/eureka/
+security:
+  basic:
+    enabled: true
+  user:
+    name: user
+    password: password123
